@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from transformers import BertModel
+
 class LSTMClassifier(nn.ModuleList):
     def __init__(self, batch_size, hidden_dim, layers, max_words):
         super(LSTMClassifier, self).__init__()
@@ -45,4 +47,24 @@ class LSTMClassifier(nn.ModuleList):
         #print("postl2", out.shape)
 
         return out
+
+class BERTClassifier(nn.Module):
+    def __init__(self):
+        super(BERTClassifier, self).__init__()
+
+        option_name = "bert-case-uncased"
+        self.encoder = BertModel.from_pretrained("bert-base-uncased")
+        self.lin = torch.nn.Linear(in_features=73, out_features=1)
+
+    def forward(self, text):
+        mask = text.clone()
+        mask[text > 0] = 1
+        print("Masked")
+        outputs = self.encoder(text, attention_mask=mask)
+        print("Predicted")
+        text = outputs[0]
+        text = self.lin(text)
+        print("Passed to lin")
+        return text
+
 
