@@ -9,3 +9,4 @@ runs
 *.zip
 .DS_Store
 data/yelp_review_polarity_csv
+etc

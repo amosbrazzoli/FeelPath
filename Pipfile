@@ -26,6 +26,7 @@ transformers = "*"
 simpletransformers = "*"
 datasets = "*"
 nltk = "*"
+torch-tb-profiler = "*"
 
 [dev-packages]
 
