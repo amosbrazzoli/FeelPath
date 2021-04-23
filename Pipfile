@@ -27,6 +27,12 @@ simpletransformers = "*"
 datasets = "*"
 nltk = "*"
 torch-tb-profiler = "*"
+networkx = "*"
+pydot = "*"
+hmmlearn = "*"
+pymc3 = "*"
+missingno = "*"
+pandas-datareader = "*"
 
 [dev-packages]
 

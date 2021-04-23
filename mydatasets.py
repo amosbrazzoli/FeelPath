@@ -1,5 +1,6 @@
-from torch.utils.data import Dataset
+import torch
 import pandas as pd
+from torch.utils.data import Dataset
 
 
 
@@ -50,7 +51,7 @@ class KaggleNLPGettingStarted(AbstractDataset):
 
         assert len(self.train) == len(self.targets)
 
-
+"""
 class DailyDialog(AbstractDataset):
     def __init__(self, csv='data/dailydialog/dailydialog.csv'):
         super(DailyDialog, self).__init__()
@@ -67,8 +68,25 @@ class DailyDialog(AbstractDataset):
 
         assert len(self.train) == len(self.targets)
 
+"""
 
 
 
+class DaisyDialog(Dataset):
+    def __init__(self, df, embedding):
+        self.df = df
+        self.embedding = embedding
+
+    def __getitem__(self, index):
+
+        sentence = self.df.Text[index]
+        sentence = [self.embedding[w] for w in sentence]
+        sentence = torch.stack(sentence)
+
+        label = self.df.Emotion[index]
+        return sentence, torch.tensor(label)
+
+    def __len__(self):
+        return len(self.df)
 
 

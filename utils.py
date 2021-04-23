@@ -77,7 +77,36 @@ def load_metrics(load_path, device):
     
     return state_dict['train_loss_list'], state_dict['valid_loss_list'], state_dict['global_steps_list']
 
+def out_dim_2d_conv(H_in,
+                    W_in,
+                    kernels,
+                    paddings=(0, 0),
+                    dilations=(1, 1),
+                    strides=(1, 1)):
+    
+    assert len(kernels) == 2
+    assert len(paddings) == 2
+    assert len(dilations) == 2
+    assert len(strides) == 2
 
+    def num(H_in, padding, dilation, kernel):
+        return H_in + 2 * padding - dilation * (kernel - 1) - 1
+
+    H_num = num(H_in, paddings[0], dilations[0], kernels[0])
+    H_den = strides[0]
+
+    W_num = num(W_in, paddings[1], dilations[1], kernels[1])
+    W_den = strides[1]
+
+    return int(H_num/H_den) + 1, int(W_num/W_den) +1
+
+def padd_cut(max_len, padd_token="[PAD]"):
+    def wrapped(text):
+        if len(text) >= max_len:
+            return text[:max_len]
+        text += [padd_token] * (max_len - len(text))
+        return text
+    return wrapped
 
 if __name__ == "__main__":
     data = ["the quick brown fox", "jumps over the lazy dog"]
