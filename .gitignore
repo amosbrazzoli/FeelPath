@@ -13,3 +13,4 @@ etc
 full_dataset
 data
 outputs
+__pycache__

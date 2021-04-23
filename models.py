@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from utils import out_dim_2d_conv
+
+'''
 from transformers import BertModel
 
 class LSTMClassifier(nn.ModuleList):
@@ -67,6 +69,7 @@ class BERTClassifier(nn.Module):
         text = self.lin(text)
         print("Passed to lin")
         return text
+'''
 
 class CNNTextClassifier(nn.Module):
     def __init__(self,  sequence_len,

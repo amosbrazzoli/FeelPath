@@ -100,13 +100,7 @@ def out_dim_2d_conv(H_in,
 
     return int(H_num/H_den) + 1, int(W_num/W_den) +1
 
-def padd_cut(max_len, padd_token="[PAD]"):
-    def wrapped(text):
-        if len(text) >= max_len:
-            return text[:max_len]
-        text += [padd_token] * (max_len - len(text))
-        return text
-    return wrapped
+
 
 if __name__ == "__main__":
     data = ["the quick brown fox", "jumps over the lazy dog"]

@@ -11,10 +11,9 @@ from torchtext.vocab import GloVe
 from mydatasets import DaisyDialog
 from torch.utils.data import DataLoader
 
-from utils import padd_cut # move to commons
 from torchtext.data.utils import get_tokenizer
 
-from commons import clean_text, clean_numbers, replace_contractions, stemmer, purge
+from commons import padd_cut, clean_text, clean_numbers, replace_contractions, stemmer, purge
 
 
 

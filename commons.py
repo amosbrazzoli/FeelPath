@@ -4,7 +4,7 @@ from nltk.stem import SnowballStemmer
 def clean_text(x):
     pattern = r'[^a-zA-z0-9\s]'
     text = re.sub(pattern, '', x)
-    return x
+    return text
 
 def clean_numbers(x):
     if bool(re.search(r'\d', x)):
@@ -32,3 +32,11 @@ def stemmer(textroll):
 
 def purge(textroll):
     return [ w for w in textroll if not w in {"", None, " ", ".", ","} ]
+
+def padd_cut(max_len, padd_token="[PAD]"):
+    def wrapped(text):
+        if len(text) >= max_len:
+            return text[:max_len]
+        text += [padd_token] * (max_len - len(text))
+        return text
+    return wrapped
