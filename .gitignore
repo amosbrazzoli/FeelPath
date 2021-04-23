@@ -10,3 +10,7 @@ runs
 .DS_Store
 data/yelp_review_polarity_csv
 etc
+full_dataset
+data
+outputs
+save
