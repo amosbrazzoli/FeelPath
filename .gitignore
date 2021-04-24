@@ -14,3 +14,5 @@ outputs
 __pycache__
 site
 datamaker.ipynb
+data
+training.py
