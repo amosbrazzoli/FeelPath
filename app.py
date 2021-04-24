@@ -25,13 +25,13 @@ model.eval()
 viterbi = viterbi_wrap()
 
 class FeelPath(Resource):
-    def get(self, data):
+    def get(self):
         sentence = request.form['data']
         pred = predict(model, sentence)
         path, _, _ = viterbi(pred)
         return {"emotions": pred, "next" : path.tolist()}
 
-api.add_resource(FeelPath, '/<string:data>')
+api.add_resource(FeelPath, '/')
 
 if __name__ == '__main__':
     app.run(debug=True)
