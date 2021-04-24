@@ -1,11 +1,12 @@
 import torch
 
-from models import MLP
+from feelpath.models import MLP
 from flask import Flask, request
 from flask_restful import Resource, Api
 
-from usage import predict
-from markov import viterbi_wrap
+from feelpath.usage import predict
+from feelpath.markov import viterbi_wrap
+
 
 app = Flask(__name__)
 api = Api(app)
