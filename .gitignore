@@ -16,3 +16,4 @@ site
 datamaker.ipynb
 data
 training.py
+test/node_modules

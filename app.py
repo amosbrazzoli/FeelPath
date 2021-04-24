@@ -25,7 +25,9 @@ model.eval()
 viterbi = viterbi_wrap()
 
 class FeelPath(Resource):
-    def get(self):
+    def post(self):
+        print(request.url)
+        print(request.headers)
         sentence = request.form['data']
         pred = predict(model, sentence)
         path, _, _ = viterbi(pred)
