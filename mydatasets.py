@@ -88,5 +88,3 @@ class DaisyDialog(Dataset):
 
     def __len__(self):
         return len(self.df)
-
-

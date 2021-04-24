@@ -9,6 +9,8 @@ torchtext = "*"
 nltk = "*"
 tqdm = "*"
 pandas = "*"
+flask = "*"
+flask-restful = "*"
 
 [dev-packages]
 

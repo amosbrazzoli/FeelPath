@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from utils import out_dim_2d_conv
+from commons import out_dim_2d_conv
 
 '''
 from transformers import BertModel

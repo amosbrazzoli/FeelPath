@@ -2,15 +2,15 @@
 .ipynb_checkpoints
 cache_dir
 .vscode
-.data
 *.pyc
 torch
 runs
 *.zip
 .DS_Store
-data/yelp_review_polarity_csv
 etc
 full_dataset
 data
 outputs
 __pycache__
+site
+datamaker.ipynb
