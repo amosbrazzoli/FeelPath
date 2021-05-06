@@ -10,6 +10,23 @@
 
 
 
+## Emotion Encoding
+
+```{json}
+{
+    0 : "neutral",
+    1 : "anger",
+    2 : "disgust",
+    3 : "fear",
+    4 : "happy",
+    5 : "sad",
+    6 : "surprise",
+    -1 : "unknown"
+}
+```
+
+
+
 ## API usage
 
 ```{bash}
@@ -39,3 +56,10 @@ Response object
 ### Bibliography
 
 https://onlinelibrary.wiley.com/doi/10.1002/eng2.12189
+
+
+
+#### Notes
+
+in `FeelPath/.vector_cache` delete all files but `glove.6B.100d.txt` and `glove.6B.100d.txt.pt` 
+
